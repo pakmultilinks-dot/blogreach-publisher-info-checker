@@ -1,0 +1,18 @@
+body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #f4f6f8; color: #222; }
+.container { max-width: 860px; margin: 0 auto; padding: 24px; }
+h1 { font-size: 26px; margin-bottom: 4px; }
+h2 { font-size: 19px; margin-top: 0; padding-bottom: 6px; }
+.muted { color: #666; }
+.card { background: #fff; border: 1px solid #ddd; padding: 20px; margin: 16px 0; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+label { display: block; margin: 10px 0 6px; }
+input[type="text"] { width: 100%; padding: 12px; box-sizing: border-box; font-size: 15px; border: 1px solid #ccc; border-radius: 5px; }
+button { margin-top: 14px; padding: 12px 22px; background: #1a73e8; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 15px; }
+button:hover { background: #1558b0; }
+.alert { padding: 12px 14px; border-radius: 5px; margin: 12px 0; }
+.alert.error { background: #fdecea; border: 1px solid #e0a3a3; color: #7a1f1f; }
+.stats { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+.stat { flex: 1 1 220px; background: #f7f9fd; border: 1px solid #d4e0f0; border-radius: 6px; padding: 12px; }
+.stat .label { display: block; font-size: 13px; color: #555; }
+.stat .value { display: block; font-size: 22px; font-weight: bold; margin-top: 4px; }
+.stat .value.small { font-size: 14px; font-weight: normal; word-break: break-word; }
+ul { line-height: 1.7; }
