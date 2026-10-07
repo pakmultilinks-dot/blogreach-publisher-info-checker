@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publisher Website Info Checker: BlogReach</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <h1>Publisher Website Info Checker</h1>
+  <p class="muted">BlogReach. Enter any website URL to see its homepage basics.</p>
+
+  {% if error %}
+  <div class="alert error" role="alert">{{ error }}</div>
+  {% endif %}
+
+  <form action="{{ url_for('check_route') }}" method="post" class="card">
+    <label for="url"><strong>Website URL</strong></label>
+    <input type="text" id="url" name="url" value="{{ url }}" required
+           placeholder="https://example.com" autocomplete="off" spellcheck="false">
+    <button type="submit">Check website</button>
+  </form>
+
+  {% if result %}
+  <div class="card">
+    <h2>Results</h2>
+    <div class="stats">
+      <div class="stat"><span class="label">Page title</span><span class="value small">{{ result.title or "Not found" }}</span></div>
+      <div class="stat"><span class="label">Meta description</span><span class="value small">{{ result.meta_description or "Not found" }}</span></div>
+      <div class="stat"><span class="label">Uses HTTPS</span><span class="value">{{ "Yes" if result.uses_https else "No" }}</span></div>
+      <div class="stat"><span class="label">Load time</span><span class="value">{{ result.load_time_s }}s</span></div>
+      <div class="stat"><span class="label">Links on homepage</span><span class="value">{{ result.link_count }}</span></div>
+      <div class="stat"><span class="label">Final URL</span><span class="value small">{{ result.final_url }}</span></div>
+    </div>
+    <p class="muted">HTTP {{ result.http_status }}. Downloaded {{ result.page_bytes }} bytes of the homepage.</p>
+  </div>
+  {% endif %}
+
+  <div class="card">
+    <h2>What you get</h2>
+    <ul>
+      <li>Page title and meta description, exactly as search engines see them</li>
+      <li>Whether the site actually serves over HTTPS (after redirects)</li>
+      <li>Measured homepage load time in seconds</li>
+      <li>Count of links on the homepage</li>
+      <li>Clear messages for invalid or unreachable URLs</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
